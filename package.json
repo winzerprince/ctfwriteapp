@@ -1,0 +1,97 @@
+{
+  "name": "writeapp",
+  "version": "1.0.0",
+  "description": "CTF Writeup Manager Application",
+  "main": "electron/src/main.js",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"npm:start-backend\" \"npm:start-frontend\" \"cross-env NODE_ENV=development electron .\"",
+    "start-backend": "cd backend && npm start",
+    "start-frontend": "cd frontend && npm start",
+    "build": "npm run build-frontend && npm run build-electron",
+    "build-frontend": "cd frontend && npm run build",
+    "build-electron": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "com.writeapp.app",
+    "productName": "WriteApp",
+    "files": [
+      "electron/src/**/*",
+      "electron/assets/**/*",
+      "frontend/build/**/*",
+      "backend/**/*",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+      "!**/node_modules/*.d.ts",
+      "!**/node_modules/.bin",
+      "!**/dist/**/*",
+      "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+      "!.editorconfig",
+      "!**/._*",
+      "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}",
+      "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+      "!**/{appveyor.yml,.travis.yml,circle.yml}",
+      "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
+    ],
+    "extraResources": [
+      {
+        "from": "node_modules/@electron/remote",
+        "to": "node_modules/@electron/remote"
+      },
+      {
+        "from": "backend/node_modules",
+        "to": "backend/node_modules"
+      }
+    ],
+    "asarUnpack": [
+      "node_modules/@electron/remote/**/*",
+      "backend/node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "electron/assets",
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "electron/assets/icon.ico"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "electron/assets/icon.png",
+      "category": "Development"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "electron/assets/icon.icns"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "keywords": [
+    "CTF",
+    "Writeup",
+    "Markdown",
+    "GitHub"
+  ],
+  "author": "winzerprince <winzerprince@example.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^26.6.10",
+    "electron-builder": "^24.13.3",
+    "electron-reloader": "^1.2.0",
+    "wait-on": "^8.0.3"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.1.2",
+    "dotenv": "^16.4.5",
+    "portfinder": "^1.0.32"
+  }
+}

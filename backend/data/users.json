@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1747132728091",
+    "username": "JamesBondage",
+    "password": "$2a$10$68Ahf5cOdKYjJt15Ed00cep4IDaD7KtLOakECK0nFGYLSq70g7hom",
+    "githubUsername": "winzerprince",
+    "githubEmail": "aitajprince200@gmail.com",
+    "encryptedGithubToken": "$2a$10$e0RfsrqMyOzg3jdyn7m34OaqNfqAs5gpTdBra0NgnbqL6fBsrRAKS"
+  },
+  {
+    "id": "1747138816527",
+    "username": "winzerprince",
+    "password": "$2a$10$9lDwngLnBKXczeY9h9hf.eCkHrEi.kRMm2nDxU4OmyHQNio/CGeLe",
+    "githubUsername": "winzerprince",
+    "githubEmail": "aitajprince200@gmail.com",
+    "encryptedGithubToken": "$2a$10$2TO/8n9YkyyaA6WkO2yudOrHarYLjpUS778hfQhReP5wc7CvgPulG"
+  }
+]
