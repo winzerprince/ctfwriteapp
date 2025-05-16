@@ -1,0 +1,154 @@
+/* filepath: /home/winzer/Desktop/code/projects/writeapp/frontend/src/pages/GithubUploadPage.css */
+.github-upload-page-container {
+    display: flex;
+    flex-direction: row; /* Align children (form and logs) side-by-side */
+    gap: 20px; /* Space between form and log panel */
+    padding: 20px;
+    max-width: 1200px; /* Limit overall width */
+    margin: auto; /* Center the container */
+}
+
+.form-container {
+    flex: 1; /* Takes up half the space */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* So padding doesn't add to width */
+}
+
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.85em;
+    color: #666;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between; /* Puts space between buttons */
+    align-items: center;
+    margin-top: 20px;
+}
+
+.form-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.form-actions button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+}
+
+.form-actions button[type="submit"]:disabled {
+    background-color: #aaa;
+}
+
+.form-actions button.cancel-button {
+    background-color: #6c757d;
+    color: white;
+}
+
+.error-message {
+    color: red;
+    background-color: #ffebee; /* Light red background */
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.success-message {
+    color: green;
+    background-color: #e8f5e9; /* Light green background */
+    padding: 10px;
+    border: 1px solid green;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.log-panel-container {
+    flex: 1; /* Takes up the other half of the space */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #282c34; /* Dark background for logs */
+    color: #abb2bf; /* Light text for logs */
+    display: flex;
+    flex-direction: column;
+}
+
+.log-panel-container h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+    color: #61dafb; /* Light blue for heading */
+}
+
+.log-output {
+    flex-grow: 1; /* Allows the div to take available space */
+    height: 400px; /* Or a fixed height, or max-height */
+    overflow-y: auto; /* Makes it scrollable */
+    background-color: #21252b; /* Slightly different dark shade */
+    padding: 10px;
+    border-radius: 4px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.9em;
+    white-space: pre-wrap; /* Ensures logs wrap and preserve whitespace */
+    border: 1px solid #333;
+}
+
+.log-output div {
+    padding: 2px 0;
+    border-bottom: 1px dotted #444851; /* Separator for log entries */
+}
+
+.log-output div:last-child {
+    border-bottom: none; /* No border for the last log entry */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .github-upload-page-container {
+        flex-direction: column; /* Stack form and logs on smaller screens */
+    }
+
+    .form-container,
+    .log-panel-container {
+        width: 100%; /* Full width for stacked items */
+        margin-bottom: 20px;
+    }
+}
